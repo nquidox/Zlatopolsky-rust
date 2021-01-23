@@ -1,8 +1,5 @@
-//Задачник Златопольского, Глава 1.
+//Zlatopolsky tasks book. Chapter 1.
 use rand::Rng;
-
-//Начало
-//Арифметические выражения.
 
 
 //1
@@ -241,9 +238,9 @@ fn task_1_25_29(){
 	horizon = ((R + height).powi(2) - R.powi(2)).sqrt();
 	println!("27) Distance to horizon is {:.2} km from height {} km.", horizon, height);
 
-	let cube_side: u8 = rand_num.gen_range(1..10);
-	let mut volume: u8 = 0;
-	let mut side_square = 0;
+	let cube_side: u32 = rand_num.gen_range(1..10);
+	let mut volume: u32 = 0;
+	let mut side_square: u32 = 0;
 	volume = cube_side.pow(3);
 	side_square = cube_side.pow(2);
 	println!("28) Cube side = {}, volume = {}, side square = {}", cube_side, volume, side_square);
@@ -252,16 +249,16 @@ fn task_1_25_29(){
 	let mut circle_len: f64 = 0.0;
 	let mut circle_sqr: f64 = 0.0;
 	let rad = radius as f64;
-	circle_len = 2.0 * pi_num * rad; //thread 'main' panicked at 'attempt to multiply with overflow' sometimes crashes
+	circle_len = 2.0 * pi_num * rad;
 	circle_sqr = pi_num * rad.powi(2);
-	println!("Radius = {}, circle length = {:.2}, circle square = {:.2} ", rad, circle_len, circle_sqr);
+	println!("Radius = {:.2}, circle length = {:.2}, circle square = {:.2} ", rad, circle_len, circle_sqr);
 	println!();
 }
 
 
-//Эта функция будет всегда в самом конце и в ней будут запускаться все остальные функции
+//keep main fn in the end
 fn main() {
-	println!("Задачник Златопольского, Глава 1");
+	println!("Zlatopolsky tasks book. Chapter 1.");
 	println!();
 	task_1_1();
 	task_1_2();
