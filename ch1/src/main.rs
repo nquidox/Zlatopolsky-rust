@@ -16,8 +16,8 @@ fn task_1_1() {
 fn task_1_2(){
 	let e_num = std::f64::consts::E;
 	println!("Task 1.2");
-	println!("Full Pi value is: {}", e_num);
-	println!("Short Pi value is: {name:.*}", 1, name = e_num);
+	println!("Full E value is: {}", e_num);
+	println!("Short E value is: {name:.*}", 1, name = e_num);
 	println!();
 }
 
@@ -131,10 +131,19 @@ fn task_1_14(){
 	println!("f) 5cos(y), y = {ia:.2}, result (in radians) = {rez:.2}", ia = y, rez = {5.0 * y.cos()});
 	println!("g) -7.5a^2, a = {ia:.2}, result = {rez:.2}", ia = a, rez = {-7.5 * a.powi(2)});
 	println!("h) 3sqrt(x), x = {ia:.2}, result = {rez:.2}", ia = x, rez = {3.0 * x.sqrt()});
-	println!("i) sin(a)cos(b)+cos(a)sin(b), alpha = {ialpha:.2}, beta = {ibeta:.2}, result (in radians) = {rez:.2}", ialpha = alpha, ibeta = beta, rez = {(alpha.sin() * beta.cos()) + (alpha.cos() * beta.sin())});
-	println!("j) a*sqrt(2b), a = {ia:.2}, b = {ib:.2}, result = {rez:.2}", ia = a, ib = b, rez = {a * (2.0 * b).sqrt()});
-	println!("k) 3sin(2alpha)*cos(3beta), alpha = {ia:.2}, beta = {ib:.2}, result (in radians) = {rez:.2}", ia = alpha, ib = beta, rez = {3.0 * (2.0 * alpha).sin() * (3.0 * beta).cos()});
-	println!("l) -5*sqrt(x+sqrt(y)), x = {ia:.2}, y = {ib:.2}, result = {rez:.2}", ia = x, ib = y, rez = {-5.0 * (x + y.sqrt()).sqrt()});
+
+	println!("i) sin(a)cos(b)+cos(a)sin(b), alpha = {ialpha:.2}, beta = {ibeta:.2}, result (in radians) = {rez:.2}",
+			 ialpha = alpha, ibeta = beta, rez = {(alpha.sin() * beta.cos()) + (alpha.cos() * beta.sin())});
+
+	println!("j) a*sqrt(2b), a = {ia:.2}, b = {ib:.2}, result = {rez:.2}",
+			 ia = a, ib = b, rez = {a * (2.0 * b).sqrt()});
+
+	println!("k) 3sin(2alpha)*cos(3beta), alpha = {ia:.2}, beta = {ib:.2}, result (in radians) = {rez:.2}",
+			 ia = alpha, ib = beta, rez = {3.0 * (2.0 * alpha).sin() * (3.0 * beta).cos()});
+
+	println!("l) -5*sqrt(x+sqrt(y)), x = {ia:.2}, y = {ib:.2}, result = {rez:.2}",
+			 ia = x, ib = y, rez = {-5.0 * (x + y.sqrt()).sqrt()});
+
 	println!();
 }
 
@@ -156,7 +165,7 @@ fn task_1_18(){
 	println!("b) s = 6, s = -5.2 * s, s = 0, result = {rez:.2}", rez = s);
 
 	let mut s: f64 = -7.5; 	//you still need to set the type of a variable after shadowing it
-	s = 2.0 * s; 				//there are no increments like s *= 2 or s++ in rust lang, it helps to avoid bugs
+	s = 2.0 * s; //there are no increments like s *= 2 or s++ in rust lang, it helps to avoid bugs
 	println!("c) s = -7.5, s = 2 * s, result = {rez:.2}", rez = s);
 
 	let mut rand_num = rand::thread_rng();
@@ -251,10 +260,171 @@ fn task_1_25_29(){
 	let rad = radius as f64;
 	circle_len = 2.0 * pi_num * rad;
 	circle_sqr = pi_num * rad.powi(2);
-	println!("Radius = {:.2}, circle length = {:.2}, circle square = {:.2} ", rad, circle_len, circle_sqr);
+	println!("Radius = {:.2}, circle length = {:.2}, circle square = {:.2} ",
+			 rad, circle_len, circle_sqr);
 	println!();
 }
 
+
+//30
+fn task_1_30(){
+	println!("Task 1.30");
+	let mut rand_num = rand::thread_rng();
+	let x: f64 = rand_num.gen_range(1.0..10.0);
+	let y: f64 = rand_num.gen_range(1.0..10.0);
+	let mut z: f64 = 0.0;
+	z = x.powi(3) - (2.5 * x * y) + (1.78 * x.powi(2)) - (2.5 * y) + 1.0;
+	println!("a) X = {:.2}, Y = {:.2},  Result of equation: {:.2}", x, y, z);
+	println!();
+}
+
+
+//31
+fn task_1_31(){
+	println!("Task 1.31");
+	let mut rand_num = rand::thread_rng();
+	let x: f64 = rand_num.gen_range(1.0..10.0);
+	let y: f64 = rand_num.gen_range(1.0..10.0);
+	let _arif: f64 = 0.0;
+	let _geom: f64 = 0.0;
+	println!("X = {:.2}, Y = {:.2}, arif = {:.2}, geom = {:.2}",
+			 x, y, arif = {(x + y) / 2.0}, geom = {(x * y).sqrt()});
+	println!();
+}
+
+
+//35+37
+fn task_1_35_37(){
+	println!("Task 1.35 + 37");
+	let mut rand_num = rand::thread_rng();
+	let kat_x: f64 = rand_num.gen_range(1.0..10.0);
+	let kat_y: f64 = rand_num.gen_range(1.0..10.0);
+	let mut hypot: f64 = 0.0;
+	let mut perim: f64 = 0.0;
+	hypot = (kat_x.powi(2) + kat_y.powi(2)).sqrt();
+	perim = kat_x + kat_y + hypot;
+	println!("Katet 1 = {:.2}, Katet 2 = {:.2}, Hypotenuse = {:.2}, Perimeter = {:.2}",
+			 kat_x, kat_y, hypot, perim);
+	println!();
+}
+
+
+//51
+fn task_1_51(){
+	println!("Task 1.51");
+
+	//check fig51 in src
+	let ax: u8 = 1;
+	let ay: u8 = 2;
+	let bx: u8 = 3;
+	let by: u8 = 4;
+	let cx: u8 = 5;
+	let cy: u8 = 3;
+	let dx: u8 = 2;
+	let dy: u8 = 1;
+
+	//find katets
+	let ab: f64 = ((ax as f64 - bx as f64).abs().powi(2) +
+					  (ay as f64 - by as f64).abs().powi(2)).sqrt();
+
+	let bc: f64 = ((bx as f64 - cx as f64).abs().powi(2) +
+					  (by as f64 - cy as f64).abs().powi(2)).sqrt();
+
+	let ad: f64 = ((ax as f64 - dx as f64).abs().powi(2) +
+					  (ay as f64 - dy as f64).abs().powi(2)).sqrt();
+
+	let cd: f64 = ((cx as f64 - dx as f64).abs().powi(2) +
+					  (cy as f64 - dy as f64).abs().powi(2)).sqrt();
+
+	//find hypotenuse
+	let ac: f64 = (ab.powi(2) + bc.powi(2)).sqrt();
+
+	//find half perimeters of triangles
+	let hp_abc: f64 = (ab + bc + ac) / 2.0; //4.34
+	let hp_adc: f64 = (ad + cd + ac) / 2.0; //4.315
+
+	//find squares of triangles
+	let sq_abc: f64 = (hp_abc * (hp_abc - ab) * (hp_abc - bc) * (hp_abc - ac)).sqrt();
+	let sq_adc: f64 = (hp_adc * (hp_adc - ad) * (hp_adc - cd) * (hp_adc - ac)).sqrt();
+
+	println!("Sides. AB = {:.2}, BC = {:.2}, AC = {:.2}, AD = {:.2}, CD = {:.2}", ab, bc, ac, ad, cd);
+	println!("Triangles squares are: {:.2} and {:.2}. Quadrangle square is {:.2}.",
+			 sq_abc, sq_adc, q = {sq_abc + sq_adc});
+	println!();
+}
+
+
+//57
+fn task_1_57(){
+	println!("Task 1.57");
+	let mut rand_num = rand::thread_rng();
+	let temp_celcius: u8 = rand_num.gen_range(1..100);
+	let temp_kelvin: f64 = temp_celcius as f64 + 273.15;
+	let temp_fahren: f64 = temp_celcius as f64 * 1.8 + 32.0;
+	println!("Temperature in celcius: {:.2}, kelvin: {:.2}, fahrenheit: {:.2}",
+			 temp_celcius, temp_kelvin, temp_fahren);
+	println!();
+}
+
+
+//59
+fn task_1_59(){
+	println!("Task 1.59");
+	let mut rand_num = rand::thread_rng();
+	let mut x: u8 = rand_num.gen_range(1..10);
+	let mut y: u8 = rand_num.gen_range(1..10);
+	println!("Variables before change: {}, {}", x, y);
+	x = x + y;
+	y = x - y;
+	x = x - y;
+	println!("Variables after change: {}, {}", x, y);
+	println!();
+}
+
+
+//60
+fn task_1_60(){
+	println!("Task 1.60");
+	let mut rand_num = rand::thread_rng();
+	let mut a: u8 = rand_num.gen_range(1..10);
+	let mut b: u8 = rand_num.gen_range(1..10);
+	let mut c: u8 = rand_num.gen_range(1..10);
+	println!("Variables before change: {}, {}, {}", a, b, c);
+	b = c;
+	a = b;
+	c = a;
+	println!("Variables after change: {}, {}, {}", a, b, c);
+	println!();
+
+}
+
+
+//61
+fn task_1_61(){
+	println!("Task 1.61");
+	let a: u16 = 2;
+	let mut a4: u16 = 0;
+	a4 = a * a;
+	a4 = a4 * a4;
+	println!("a^4 in 2 operations: {}", a4);
+
+	let mut a9: u16 = 0;
+	a9 = a * a;
+	a9 = a9 * a9;
+	a9 = a9 * a9;
+	a9 = a9 * a;
+	println!("a^9 in 4 operations: {}", a9);
+
+	let mut a15: u16 = 0;
+	let mut a15t: u16 = 0;
+	a15 = a * a;
+	a15t = a15 * a;
+	a15 = a15t * a15t;
+	a15 = a15 * a15;
+	a15 = a15 * a15t;
+	println!("a^15 in 5 operations: {}", a15);
+	println!();
+}
 
 //keep main fn in the end
 fn main() {
@@ -275,4 +445,13 @@ fn main() {
 	task_1_22();
 	task_1_23();
 	task_1_25_29();
+	task_1_30();
+	task_1_31();
+	task_1_35_37();
+	task_1_51();
+	task_1_57();
+	task_1_59();
+	task_1_60();
+	task_1_61();
+	println!("End of tasks.");
 } 
