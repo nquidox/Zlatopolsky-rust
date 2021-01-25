@@ -70,7 +70,32 @@ fn task_2_18(){
     let n5: u16 = (ones * 100) + (hundreds * 10) + (tens);
     let n6: u16 = (ones * 100) + (tens * 10) + (hundreds);
     println!("All variants with numbers 1, 2, 3: {}, {}, {}, {}, {}, {}",
-             number, n2, n3, n4, n5, n6)
+             number, n2, n3, n4, n5, n6);
+    println!();
+
+}
+
+
+fn task_2_24(){
+    println!("Task 2.24");
+    let x: u16 = 237;
+    let y: u16 = (x % 100) * 10 + (x / 100);
+    println!("Number : {}", y);
+    println!()
+
+}
+
+
+fn task_2_43(){
+    println!("Task 2.43");
+    let mut rand_num = rand::thread_rng();
+    let a: u8 = rand_num.gen_range(1..11);
+    let b: u8 = rand_num.gen_range(1..11);
+    let ab: u8 = a / b;
+    let ba: u8 = b / a;
+    let check:u8 = (ab * ba) + 1;
+    println!("Numbers a = {} anf b = {}, if this = 1: {}, then numbers divide.", a, b, check);
+    println!();
 
 }
 
@@ -84,5 +109,7 @@ fn main() {
     task_2_12();
     task_2_13();
     task_2_18();
+    task_2_24();
+    task_2_43();
     println!("End of tasks.");
 }
