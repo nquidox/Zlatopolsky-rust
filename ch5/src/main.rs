@@ -78,12 +78,25 @@ fn task_5_31(){
 }
 
 
-//need to finish this
 fn task_5_67(){
     println!("Task 5.67");
     let mut rand_num = rand::thread_rng();
     let n: u8 = rand_num.gen_range(3..8);
-    println!("N = {}, fib number = ", n);
+    let mut fib_last: u16 = 1;
+    let mut fib_cur: u16 = 1;
+    let mut fib_sum: u16 = 0;
+    let mut counter: u8 = 0;
+    println!("Fibonacci numbers: ");
+    println!("{}", fib_last);
+    while counter < n - 2 {
+        println!("{}", fib_cur);
+        fib_sum = fib_last + fib_cur;
+        fib_last = fib_cur;
+        fib_cur = fib_sum;
+        counter += 1;
+    }
+    println!("N = {}, Fibonacci number = {}", n, fib_cur);
+    println!()
 }
 
 
