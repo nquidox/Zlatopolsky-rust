@@ -49,12 +49,11 @@ fn task_6_8_9(){
 }
 
 
-//works bad
+
 fn task_6_22(){
     println!("Task 6.22");
     let mut rand_num= rand::thread_rng();
-    //let n: u16 = rand_num.gen_range(1000..10_000);
-    let n: u16 = 3333;
+    let n: u16 = rand_num.gen_range(1000..10_000);
     let thousands: u16 = n / 1000;
     let hundreds: u16 = n % 1000 / 100;
     let tens: u16 = n % 100 / 10;
@@ -62,18 +61,11 @@ fn task_6_22(){
     let list:[u16; 4] = [thousands, hundreds, tens, ones];
 
     let mut q3: u8 = 0;
-    for i in 0..list.len() {
-        match i {
-            3 => q3 += 1,
-            _ => (),
-        }
-    };
+    for i in 0..list.len() {if list[i] == 3 {q3 += 1};}
     println!("a) Quantity of 3 in number {} = {}", n, q3);
 
     let mut qlast: u8 = 0;
-    for i in 1..4{
-        if i == list[3] as usize {qlast += 1}
-    };
+    for i in 0..list.len(){if list[i] == list[3] {qlast += 1;}};
     println!("b) Quantity of last number {} in number {} = {}", list[3], n, qlast);
     println!();
 
