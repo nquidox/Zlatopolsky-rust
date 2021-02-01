@@ -22,7 +22,7 @@ fn task_9_3(){
 
 
 fn task_9_13_17(){
-    println!("Task 9.13-17");
+    println!("Tasks 9.13-17");
     let word: &str = "Programming"; //should have at least 4 letters
     println!("{}", word);
 
@@ -60,16 +60,38 @@ fn task_9_18(){
 }
 
 
-//not works, needs fixing
-/*
 fn task_9_19(){
     println!("Task 9.19");
     let word: &str = "Keyboard";
-    let letters24: &str = !concat!(word.chars().nth(2).unwrap(), word.chars().nth(4).unwrap());
+    let letter2: &str = &word.chars().nth(2).unwrap().to_string();
+    let letter4: &str = &word.chars().nth(4).unwrap().to_string();
+    let letters24 = letter2.to_owned() + letter4;
     println!("Letter 2 + 4 from word {}: {}", word, letters24);
     println!();
 }
-*/
+
+//unfinished, needs fixing
+fn task_9_20_23() {
+    println!("Tasks 9.20-23");
+    let the_word: &str = "repository";
+    println!("The word for all tasks: {}", the_word);
+
+    let letter3: &str = &the_word.chars().nth(2).unwrap().to_string();
+    let letter_last: &str = &the_word.chars().last().unwrap().to_string();
+    println!("Third + last letters: {res}", res = { letter3.to_owned() + letter_last });
+
+
+    let length: usize = the_word.chars().count();
+    let chars234 = for i in 0..length
+    {   if i >= 1 && i <= 3 {
+        let mut chn: &str = &the_word.chars().nth(i).unwrap().to_string();
+        chn = &(chn.to_owned() + chn);
+    }
+    };
+    println!("{:?}", chars234);
+}
+
+
 
 //keep main fn in the end
 fn main() {
@@ -79,6 +101,7 @@ fn main() {
     task_9_3();
     task_9_13_17();
     task_9_18();
-    //task_9_19();
+    task_9_19();
+    task_9_20_23();
     println!("End of tasks.");
 }
