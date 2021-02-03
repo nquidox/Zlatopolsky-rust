@@ -71,27 +71,44 @@ fn task_9_19(){
 }
 
 //unfinished, needs fixing
-fn task_9_20_23() {
-    println!("Tasks 9.20-23");
+fn task_9_20_21() {
+    println!("Tasks 9.20-21");
     let the_word: &str = "repository";
     println!("The word for all tasks: {}", the_word);
-
     let letter3: &str = &the_word.chars().nth(2).unwrap().to_string();
     let letter_last: &str = &the_word.chars().last().unwrap().to_string();
     println!("Third + last letters: {res}", res = { letter3.to_owned() + letter_last });
-
-
     let length: usize = the_word.chars().count();
-    let chars234 = for i in 0..length
-    {   if i >= 1 && i <= 3 {
-        let mut chn: &str = &the_word.chars().nth(i).unwrap().to_string();
-        chn = &(chn.to_owned() + chn);
-    }
+    let mut chars234: String = "".to_string();
+    let mut chn: String;
+    for i in 0..length {
+        if i >= 1 && i <= 3 {
+        chn = the_word.chars().nth(i).unwrap().to_string();
+        chars234 = chars234.to_owned() + &chn;
+        }
     };
     println!("{:?}", chars234);
+    println!();
 }
 
 
+fn task_9_24(){
+    println!("Task 9.24");
+    let the_word: String = String::from("TopRoflBot");
+    let mut word: String = the_word.clone();
+    let bot: String = word.split_off(7);
+    let rofl: String = word.split_off(3);
+    println!("The word '{}' splitted: {}, {}, {}", the_word, word, rofl, bot);
+    println!();
+}
+
+
+fn task_9_42(){
+    println!("Task 9.42");
+    let the_word: &str = "Rust";
+    let backwards_word: String = the_word.chars().rev().collect();
+    println!("The word {} written backwards: {}", the_word, backwards_word);
+}
 
 //keep main fn in the end
 fn main() {
@@ -102,6 +119,8 @@ fn main() {
     task_9_13_17();
     task_9_18();
     task_9_19();
-    task_9_20_23();
+    task_9_20_21();
+    task_9_24();
+    task_9_42();
     println!("End of tasks.");
 }
